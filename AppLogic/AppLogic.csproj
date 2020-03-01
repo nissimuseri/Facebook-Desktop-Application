@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17CB0C70-49C1-4B9C-8A6A-9F82DE0A8EF6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AppLogic</RootNamespace>
+    <AssemblyName>AppLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FetchData\ConnectFB.cs" />
+    <Compile Include="FetchData\FacebookDataFacade.cs" />
+    <Compile Include="FilterPosts\IPostsFilter.cs" />
+    <Compile Include="FilterPosts\PostsFilter.cs" />
+    <Compile Include="FilterPosts\PostsMemoryCacheProxy.cs" />
+    <Compile Include="LocationsMap\Template Method\FetchCheckinsLocations.cs" />
+    <Compile Include="LocationsMap\Template Method\FetchLocationsData.cs" />
+    <Compile Include="LocationsMap\Template Method\FetchPhotosLocations.cs" />
+    <Compile Include="LocationsMap\Template Method\FetchPostsLocations.cs" />
+    <Compile Include="LocationsMap\ILocationsMap.cs" />
+    <Compile Include="LocationsMap\LatestLocations.cs" />
+    <Compile Include="LocationsMap\VisitedLocation.cs" />
+    <Compile Include="Strategy\AlphabeticSort.cs" />
+    <Compile Include="Strategy\CheckInsSort.cs" />
+    <Compile Include="Strategy\ISortMethod.cs" />
+    <Compile Include="Strategy\PhotosSort.cs" />
+    <Compile Include="Strategy\PostsSort.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Facebook">
+      <HintPath>..\..\..\..\..\..\Temp\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="FbGraphApiWrapper">
+      <HintPath>..\..\..\..\..\..\Temp\FbGraphApiWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
